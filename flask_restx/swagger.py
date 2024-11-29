@@ -229,10 +229,9 @@ class Swagger(object):
     A Swagger documentation wrapper for an API instance.
     """
 
-    def __init__(self, api, **kwargs):
+    def __init__(self, api):
         self.api = api
         self._registered_models = {}
-        self.externalDocs = kwargs.get("externalDocs")
 
     def as_dict(self):
         """
@@ -304,8 +303,7 @@ class Swagger(object):
             "tags": tags,
             "definitions": self.serialize_definitions() or None,
             "responses": responses or None,
-            "host": self.get_host(),
-            "externalDocs": getattr(self, 'externalDocs')
+            "host": self.get_host()
         }
         return not_none(specs)
 
