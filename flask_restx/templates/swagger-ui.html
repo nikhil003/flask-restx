@@ -66,6 +66,7 @@
                 {% if config.SWAGGER_SUPPORTED_SUBMIT_METHODS is defined -%}
                   supportedSubmitMethods: {{ config.SWAGGER_SUPPORTED_SUBMIT_METHODS | tojson}},
                 {%- endif %}
+                syntaxHighlight: {{ config.SWAGGER_SYNTAX_HIGHLIGHT|default(False)|tojson }},
                 displayOperationId: {{ config.SWAGGER_UI_OPERATION_ID|default(False)|tojson }},
                 displayRequestDuration: {{ config.SWAGGER_UI_REQUEST_DURATION|default(False)|tojson }},
                 docExpansion: "{{ config.SWAGGER_UI_DOC_EXPANSION | default('none') }}"
